@@ -4,29 +4,117 @@ import logoPic from './pics/logoPic.png';
 import skywardPic from './pics/skyward.jpg';
 import relicPic from './pics/relic.jpg';
 import riftPic from './pics/rift.png';
+import facebookPic from './pics/FB.png';
+import instagramPic from './pics/Insta.png';
+import spotifyPic from './pics/spotifyCircle.jpg';
+import youtubePic from './pics/YT.png';
 
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NavLink
+} from 'react-router-dom';
 
 export default function App() {
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to='/'>Home</Link>
-            </li>
-            <li>
-              <Link to='/about'>About</Link>
-            </li>
-            <li>
-              <Link to='/albums'>Albums</Link>
-            </li>
-            <li>
-              <Link to='/shows'>Shows</Link>
-            </li>
-          </ul>
-        </nav>
+        <div>
+          <nav className='navbar'>
+            <ul
+              className='navbar-nav mr-auto'
+              style={{ display: 'flex', flexDirection: 'row' }}
+            >
+              <li style={{ paddingRight: '10px' }}>
+                <NavLink to='/'>Home</NavLink>
+              </li>
+              <li style={{ paddingRight: '10px' }}>
+                <NavLink to='/about'>About</NavLink>
+              </li>
+              <li style={{ paddingRight: '10px' }}>
+                <NavLink to='/albums'>Albums</NavLink>
+              </li>
+              <li style={{ paddingRight: '10px' }}>
+                <NavLink to='/shows'>Shows</NavLink>
+              </li>
+            </ul>
+
+            <ul
+              className='navbar-nav ml-auto'
+              style={{ display: 'flex', flexDirection: 'row' }}
+            >
+              <li style={{ paddingLeft: '10px' }}>
+                <a
+                  href='https://www.facebook.com/formingthevoid/'
+                  target='_blank'
+                >
+                  {' '}
+                  <img
+                    src={facebookPic}
+                    alt='pics'
+                    className='img-fluid'
+                    style={{ width: '25px' }}
+                  />
+                </a>
+              </li>
+              <li style={{ paddingLeft: '10px' }}>
+                <a
+                  href='https://www.instagram.com/forming_the_void/?hl=en'
+                  target='_blank'
+                >
+                  {' '}
+                  <img
+                    src={instagramPic}
+                    alt='pics'
+                    className='img-fluid'
+                    style={{ width: '25px' }}
+                  />
+                </a>
+              </li>
+              <li style={{ paddingLeft: '10px' }}>
+                <a
+                  href='https://open.spotify.com/artist/4VSEqckiFLO2SOuSKAlXTv'
+                  target='_blank'
+                >
+                  <img
+                    src={spotifyPic}
+                    alt='pics'
+                    className='img-fluid'
+                    style={{ width: '25px' }}
+                  />
+                </a>
+              </li>
+              <li style={{ paddingLeft: '10px' }}>
+                <a
+                  href='https://www.youtube.com/watch?v=cLUvtkiaZFA'
+                  target='_blank'
+                >
+                  {' '}
+                  <img
+                    src={youtubePic}
+                    alt='pics'
+                    className='img-fluid'
+                    style={{ width: '25px' }}
+                  />
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        {/*   <ul class="navbar-nav">
+                <li class="nav"><a class="navbar-brand nav-link"
+                        href="https://open.spotify.com/artist/4VSEqckiFLO2SOuSKAlXTv" target="_blank"><img
+                            src="pics/sites/spotifyCircle.jpg" alt="" style="width:25px;"></a></li>
+                <li class="nav"><a class="navbar-brand nav-link" href="https://www.youtube.com/watch?v=cLUvtkiaZFA"
+                        target="_blank"><img src="pics/sites/YT.png" alt="" style="width:25px;"></a></li>
+                <li class="nav"><a class="navbar-brand nav-link" href="https://www.facebook.com/formingthevoid/"
+                        target="_blank"><img src="pics/sites/FB.png" alt="" style="width:25px;"></a></li>
+                <li class="nav"><a class="navbar-brand nav-link"
+                        href="https://www.instagram.com/forming_the_void/?hl=en" target="_blank"><img
+                            src="pics/sites/insta.png" alt="" style="width:25px;"></a></li>
+            </ul> */}
 
         <Switch>
           <Route path='/shows'>
@@ -76,7 +164,8 @@ function About() {
     backgroundColor: 'hsl(218, 51%, 10%)',
     color: 'white',
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    paddingRight: '20px'
   };
 
   return (
@@ -256,34 +345,11 @@ class Shows extends Component {
   }
 
   componentDidMount() {
-    // let txt = '';
-
     fetch(
       'https://rest.bandsintown.com/artists/formingthevoid/events?app_id=13706c200eb9a2e94dde6d6e2ffd999a&date=upcoming'
     )
       .then(res => res.json())
       .then(result => {
-        console.log(result);
-
-        // for (var i = 0; i < result.length; i++) {
-        //   var day = new Date(result[i].datetime);
-        //   day.toDateString();
-        //   var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        //   var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        //   let day2 = `${days[day.getDay()]}, ${months[day.getMonth()]} ${day.getDate()}`;
-        //   result[i].datetime = day2;
-        // }
-
-        // for (var j = 0; j < result.length; j++) {
-        //   txt += '<tr><td>' + result[j].datetime + '</td><td>' + result[j].venue.city + ', ';
-        //   if (result[j].venue.region) {
-        //     txt += result[j].venue.region;
-        //   } else {
-        //     txt += result[j].venue.country;
-        //   }
-        //   txt += '</td><td><a href="' + result[j].url + '">' + result[j].venue.name + '</a></td><tr>';
-        // }
-
         this.setState({
           showData: result
         });

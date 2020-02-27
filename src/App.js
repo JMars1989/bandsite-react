@@ -27,16 +27,24 @@ export default function App() {
               style={{ display: 'flex', flexDirection: 'row' }}
             >
               <li style={{ paddingRight: '10px' }}>
-                <NavLink to='/'>Home</NavLink>
+                <NavLink to='/' className='navLink'>
+                  Home
+                </NavLink>
               </li>
               <li style={{ paddingRight: '10px' }}>
-                <NavLink to='/about'>About</NavLink>
+                <NavLink to='/about' className='navLink'>
+                  About
+                </NavLink>
               </li>
               <li style={{ paddingRight: '10px' }}>
-                <NavLink to='/albums'>Albums</NavLink>
+                <NavLink to='/albums' className='navLink'>
+                  Albums
+                </NavLink>
               </li>
               <li style={{ paddingRight: '10px' }}>
-                <NavLink to='/shows'>Shows</NavLink>
+                <NavLink to='/shows' className='navLink'>
+                  Shows
+                </NavLink>
               </li>
             </ul>
 
@@ -103,19 +111,6 @@ export default function App() {
           </nav>
         </div>
 
-        {/*   <ul class="navbar-nav">
-                <li class="nav"><a class="navbar-brand nav-link"
-                        href="https://open.spotify.com/artist/4VSEqckiFLO2SOuSKAlXTv" target="_blank"><img
-                            src="pics/sites/spotifyCircle.jpg" alt="" style="width:25px;"></a></li>
-                <li class="nav"><a class="navbar-brand nav-link" href="https://www.youtube.com/watch?v=cLUvtkiaZFA"
-                        target="_blank"><img src="pics/sites/YT.png" alt="" style="width:25px;"></a></li>
-                <li class="nav"><a class="navbar-brand nav-link" href="https://www.facebook.com/formingthevoid/"
-                        target="_blank"><img src="pics/sites/FB.png" alt="" style="width:25px;"></a></li>
-                <li class="nav"><a class="navbar-brand nav-link"
-                        href="https://www.instagram.com/forming_the_void/?hl=en" target="_blank"><img
-                            src="pics/sites/insta.png" alt="" style="width:25px;"></a></li>
-            </ul> */}
-
         <Switch>
           <Route path='/shows'>
             <Shows />
@@ -136,23 +131,9 @@ export default function App() {
 }
 
 function Home() {
-  const homeStyle = {
-    // backgroundColor: 'hsl(218, 51%, 10%)',
-    display: 'flex',
-    justifyContent: 'center',
-    maxWidth: '1000px'
-  };
-
-  // const imageStyle = {
-  //   width: "55%",
-  //   height: "auto"
-  // }
-
-  // style={imageStyle}
-
   return (
     <div style={{ backgroundColor: 'hsl(218, 51%, 10%)' }}>
-      <div style={homeStyle} className='mx-auto'>
+      <div style={{ maxWidth: '1000px' }} className='mx-auto'>
         <img src={logoPic} alt='pics' className='img-fluid' />
       </div>
     </div>
@@ -251,7 +232,7 @@ function Albums() {
     >
       <div className='container-fluid'>
         <h1
-          className='display-4 text-center pt-5'
+          className='display-4 text-center'
           style={{ color: 'hsl(218, 75%, 45%)', fontWeight: 'bold' }}
         >
           Albums
@@ -358,7 +339,7 @@ class Shows extends Component {
 
   render() {
     const showsStyle = {
-      backgroundColor: 'hsl(218, 51%, 10%)',
+      // backgroundColor: 'hsl(218, 51%, 10%)',
       color: 'white',
       display: 'flex',
       justifyContent: 'center',
@@ -409,14 +390,14 @@ class Shows extends Component {
     return (
       <div style={{ backgroundColor: 'hsl(218, 51%, 10%)' }}>
         <div style={showsStyle} className='mx-auto'>
-          <table className='table text-center table-dark'>
+          <table className='table text-center'>
             <h1
               className='display-4 pb-1'
               style={{ color: 'hsl(218, 75%, 45%)', fontWeight: 'bold' }}
             >
               SHOWS
             </h1>
-            <tbody>{contents}</tbody>
+            <tbody style={{ color: 'white' }}>{contents}</tbody>
           </table>
         </div>
       </div>

@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+This is a basic website for my band based on a previous static html site I made for my band with bootstrap.
+
 ## Available Scripts
 
 In the project directory, you can run:

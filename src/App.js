@@ -57,7 +57,6 @@ export default function App() {
                   href='https://www.facebook.com/formingthevoid/'
                   target='_blank'
                 >
-                  {' '}
                   <img
                     src={facebookPic}
                     alt='pics'
@@ -71,7 +70,6 @@ export default function App() {
                   href='https://www.instagram.com/forming_the_void/?hl=en'
                   target='_blank'
                 >
-                  {' '}
                   <img
                     src={instagramPic}
                     alt='pics'
@@ -98,7 +96,6 @@ export default function App() {
                   href='https://www.youtube.com/watch?v=cLUvtkiaZFA'
                   target='_blank'
                 >
-                  {' '}
                   <img
                     src={youtubePic}
                     alt='pics'
@@ -126,6 +123,7 @@ export default function App() {
           </Route>
         </Switch>
       </div>
+      <Footer />
     </Router>
   );
 }
@@ -143,7 +141,7 @@ function Home() {
 function About() {
   const aboutStyle = {
     backgroundColor: 'hsl(218, 51%, 10%)',
-    color: 'white',
+    color: 'lightgrey',
     display: 'flex',
     justifyContent: 'center',
     paddingRight: '20px'
@@ -339,7 +337,6 @@ class Shows extends Component {
 
   render() {
     const showsStyle = {
-      // backgroundColor: 'hsl(218, 51%, 10%)',
       color: 'white',
       display: 'flex',
       justifyContent: 'center',
@@ -397,10 +394,27 @@ class Shows extends Component {
             >
               SHOWS
             </h1>
-            <tbody style={{ color: 'white' }}>{contents}</tbody>
+            <tbody style={{ color: 'lightgrey' }}>{contents}</tbody>
           </table>
         </div>
       </div>
     );
   }
+}
+
+function Footer() {
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        bottom: '10px',
+        left: '43%',
+        backgroundColor: 'hsl(218, 51%, 10%)',
+        color: 'lightgrey',
+        fontSize: '.8rem'
+      }}
+    >
+      Forming the Void &copy; 2020
+    </div>
+  );
 }
